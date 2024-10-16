@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meganathan K's Portfolio</title>
+    <link rel="stylesheet" href="static/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Meganathan K</h1>
+            <p>Welcome to my portfolio! I am a Machine Learning / AI Engineer.</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container fade-in">
+        <h2>About Me</h2>
+        <p>Hello! I am Meganathan, a passionate Machine Learning and Artificial Intelligence Engineer dedicated to developing innovative solutions that harness the power of data. With a strong foundation in algorithms and statistical modeling, I strive to create intelligent systems that drive efficiency and enhance decision-making.</p>
+        <p>I have experience in various ML and AI techniques, including supervised and unsupervised learning, deep learning, and natural language processing. My projects range from developing predictive models to creating intelligent chatbots, enabling businesses to leverage data for strategic growth.</p>
+        <p>I believe in the importance of continuous learning and staying updated with the latest advancements in the field. I am excited about the future of AI and its potential to transform industries. Let’s connect and explore how we can work together to create impactful solutions!</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container fade-in">
+        <h2>My Projects</h2>
+        <div class="project">
+            <h3><a href="https://meganathan006.github.io/foodchatbot/" target="_blank">Food Delivery Chatbot</a></h3>
+            <p>In this project, I designed and implemented a sophisticated Food Delivery Chatbot that leverages Natural Language Processing (NLP) and Dialogflow to deliver an engaging and user-friendly ordering experience. The chatbot is architected using FastAPI, which facilitates efficient API connections and ensures seamless communication between the user interface and backend services.</p>
+            <p>This solution is crafted to understand and respond to user inquiries in natural language, enabling customers to place orders effortlessly. The chatbot enhances the overall user experience by providing real-time assistance and guiding users through the ordering process. Additionally, its scalable design allows for easy integration with various food delivery platforms, making it a versatile tool for businesses looking to improve customer engagement and streamline operations.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://hy-there.streamlit.app/" target="_blank">Mini Chatbot</a></h3>
+            <p>In this project, I developed a Mini Chatbot utilizing a Large Language Model (LLM) from Groq to deliver intelligent and responsive interactions. The user-friendly interface is designed using Streamlit, providing a seamless web experience for users to engage with the chatbot.</p>
+            <p>This innovative solution harnesses the capabilities of advanced natural language understanding, allowing it to comprehend and respond to user queries effectively. By providing quick and accurate answers, the Mini Chatbot enhances user engagement and satisfaction. The flexible design also enables easy deployment across various platforms, making it a valuable asset for businesses seeking to improve customer interactions and support.</p>
+        </div>
+        <div class="project">
+            <h3><a href="https://meganathan006.github.io/webdesign/" target="_blank">Web Page Design</a></h3>
+            <p>In this project, I utilized basic HTML, CSS, and JavaScript to create engaging and visually appealing animated webpages. The focus was on developing interactive designs that enhance user experience through smooth transitions and captivating animations.</p>
+            <p>By integrating creative design principles and user-centric features, I aimed to create a seamless browsing experience that captivates visitors. The resulting webpages not only showcase aesthetic appeal but also demonstrate functional responsiveness, ensuring that users can easily navigate and interact with the content. This project highlights my ability to merge technical skills with creative design to produce compelling web solutions.
+            </p>
+        </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container fade-in">
+        <h2>My Skills</h2>
+        <ul>
+            <li>Machine Learning Algorithms (Supervised and Unsupervised Learning)</li>
+            <li>Deep Learning (Neural Networks, CNNs, RNNs)</li>
+            <li>Natural Language Processing (NLP)</li>
+            <li>Data Preprocessing and Feature Engineering</li>
+            <li>Model Evaluation and Hyperparameter Tuning</li>
+            <li>Experience with ML Libraries (TensorFlow, Keras, Scikit-learn)</li>
+            <li>API Development (FastAPI, Flask)</li>
+            <li>Database Management (MySQL, SQLAlchemy)</li>
+            <li>Data Visualization (Matplotlib, Seaborn)</li>
+            <li>Cloud Services (AWS, Google Cloud, Azure)</li>
+            <li>Version Control (Git, GitHub)</li>
+            <li>HTML, CSS, and JavaScript</li>
+            <li>Frontend Frameworks (React)</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container fade-in">
+        <h2>Contact Me</h2>
+        <form action="/send_email" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Meganathan K. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(event) {
+            event.preventDefault();  // Prevent default form submission
+
+            // Gather form data
+            const formData = new FormData(this);
+
+            // Send form data using fetch API
+            const response = await fetch('/send_email', {
+                method: 'POST',
+                body: formData,
+            });
+
+            // Parse JSON response
+            const result = await response.json();
+
+            // Show success or error message
+            const messageDiv = document.getElementById('responseMessage');
+            if (result.status === 'Message sent successfully') {
+                messageDiv.innerHTML = '<p style="color: green;">Message sent successfully!</p>';
+            } else {
+                messageDiv.innerHTML = `<p style="color: red;">Failed to send message: ${result.error}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
