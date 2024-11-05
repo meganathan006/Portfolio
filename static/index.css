@@ -21,8 +21,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
-    background-color: #333;
-    color: #fff;
+    background-color: #000000;
+    color: #e9e6e6;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -64,6 +64,7 @@ section h2 {
     text-align: center;
     position: relative;
     animation: fade-in 1s ease-in-out;
+    background-color: #faf9f8;
 }
 
 section h2::after {
@@ -79,7 +80,7 @@ section h2::after {
 /* About Section */
 #about {
     padding: 60px 0;
-    background-color: #fff;
+    background-color: #f5f5f5;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -101,6 +102,7 @@ section h2::after {
 
 .project {
     margin-bottom: 40px;
+    padding: 20px;
 }
 
 .project h3 a {
@@ -127,27 +129,58 @@ section h2::after {
 #skills {
     padding: 60px 0;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     animation: fade-in 1s ease;
 }
 
+#skills h2 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+    position: relative;
+}
+
 #skills ul {
-    padding-left: 20px;
-    columns: 2;
+    padding-left: 0;
+    list-style: none; /* Remove default list style */
     max-width: 800px;
     margin: auto;
 }
 
-#skills ul li {
-    margin-bottom: 10px;
+#skills > ul > li {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 15px 0;
+    padding: 15px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#skills > ul > li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#skills > ul > li > ul {
+    padding-left: 20px; /* Indentation for sub-lists */
+    list-style-type: disc; /* Bullets for sub-lists */
+}
+
+#skills > ul > li > ul > li {
     font-size: 18px;
     color: #555;
 }
 
-#skills ul li::before {
+/* Checkmark styles */
+#skills > ul > li::before {
     content: '✔ ';
     color: #f39c12;
-    margin-right: 5px;
+    font-size: 20px;
+    position: absolute;
+    left: -25px; /* Position checkmark to the left */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Contact Section */
@@ -165,7 +198,8 @@ section h2::after {
     margin: auto;
 }
 
-#contact form input, #contact form textarea {
+#contact form input,
+#contact form textarea {
     width: 100%;
     padding: 12px;
     border-radius: 5px;
@@ -173,7 +207,8 @@ section h2::after {
     transition: border-color 0.3s;
 }
 
-#contact form input:focus, #contact form textarea:focus {
+#contact form input:focus,
+#contact form textarea:focus {
     border-color: #f39c12;
 }
 
@@ -256,12 +291,14 @@ footer {
     }
 }
 
-#submit{
+/* Additional Styles for Submit Button */
+#submit {
     background-color: rgb(166, 107, 107);
     border-radius: 20px;
     padding: 10px 10px;
 }
-#submit a{
+
+#submit a {
     text-decoration: none;
     color: wheat;
 }
